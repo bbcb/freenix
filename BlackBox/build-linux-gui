@@ -1,10 +1,17 @@
 #!/bin/sh
 
-./run-dev0 <<DATA
+#./run-dev0 <<DATA
 #DevCompiler.CompileThis Unicode LinLibc LinLibW LinDl LinRt KernelKernelLinux
-DevCompiler.CompileSubs Lin System Std Cons Var Text Form Dev Dev2 Tyler
+#DevCompiler.CompileSubs Lin System Std Cons Var Text Form Dev Dev2 Tyler
+#
+#Dev2Linker1.LinkElfExe `uname -s` blackbox := Unicode Kernel$+ LinKernel Files Utf LinEnv LinFiles LinGui StdLoader LinLoader
+#
+#DATA
 
-Dev2Linker1.LinkElfExe `uname -s` blackbox := Unicode Kernel$+ Files Utf LinEnv LinFiles LinGui StdLoader LinLoader
+./run-dev0 <<DATA
+DevCompiler.CompileThis Unicode Kernel LinLibc LinLibW LinDl LinRt Utf LinKernel
+
+Dev2Linker1.LinkElfExe `uname -s` blackbox := Unicode Kernel$+ Utf LinKernel 
 
 DATA
 
