@@ -1,19 +1,19 @@
 #!/bin/sh
 
-#./run-dev0 <<DATA
 #DevCompiler.CompileThis Unicode LinLibc LinLibW LinDl LinRt KernelKernelLinux
-#DevCompiler.CompileSubs Lin System Std Cons Var Text Form Dev Dev2 Tyler
-#
-#Dev2Linker1.LinkElfExe `uname -s` blackbox := Unicode Kernel$+ LinKernel Files Utf LinEnv LinFiles LinGui StdLoader LinLoader
-#
-#DATA
-
 ./run-dev0 <<DATA
-DevCompiler.CompileThis Unicode Kernel LinLibc LinLibW LinDl LinRt Utf LinKernel
+DevCompiler.CompileSubs Lin System Std Cons Var Text Form Dev Dev2 Tyler
 
-Dev2Linker1.LinkElfExe `uname -s` blackbox := Unicode Kernel$+ Utf LinKernel 
+Dev2Linker1.LinkElfExe `uname -s` blackbox := Unicode Kernel$+ LinKernel Files Utf LinEnv LinFiles LinGui StdLoader LinLoader
 
 DATA
+
+#./run-dev0 <<DATA
+#DevCompiler.CompileThis Unicode Kernel LinLibc LinLibW LinDl LinRt Utf LinKernel
+#
+#Dev2Linker1.LinkElfExe `uname -s` blackbox := Unicode Kernel$+ Utf LinKernel 
+
+#DATA
 
 # Topological order of modules for subsystems System Std Cons Var Text Form Dev Dev2 Tyler:
 # Unicode Kernel Files Log Dialog Meta Math Strings Utf Stores Converters Config Console Services Fonts Ports Sequencers Models Views Controllers Properties Mechanisms Containers Dates Printers Printing Documents Windows StdCFrames Controls Files64 TextModels TextMappers TextRulers TextSetters TextViews TextControllers In Integers StdDialog StdLog Out SMath Stores64 StdApi StdClocks StdCmds StdCoder StdFolds StdDebug StdStamps StdETHConv StdHeaders StdInterpreter StdLib StdLinks StdLoader StdMenuTool StdRegistry StdScrollers FormModels FormViews StdTabViews StdTables StdTextConv StdViewSizer DevMarkers DevCommanders DevSelectors DevCPM DevCPT DevCPB DevCPS DevCPP DevCPE DevCPH DevCPL486 DevCPC486 DevCPV486 DevCompiler ConsCompiler ConsForDebug ConsInterp ConsLog TextCmds FormControllers FormCmds FormGen DevAlienTool DevAnalyzer DevReferences DevDecoder386 DevBrowser DevCmds DevDebug DevDependencies DevHeapSpy DevInspector DevLinkChk DevLinker DevMsgSpy DevProfiler DevRBrowser DevSearch DevSubTool Dev2LnkBase Dev2LnkLoad Dev2LnkWritePe Dev2LnkWriteElf Dev2LnkWriteElfStatic Dev2Linker Dev2Linker1 LinLibc LinEnv LinFiles TylerScrollbars LinWindows LinGtk2GLib LinGtk2GObject LinGtk2Pango LinGtk2Gdk LinGtk2Gtk LinGtk2Util LinGtk2Keysyms LinRegistry LinFonts LinPorts LinBackends LinDl LinGui LinLang LinIconv LinDialog LinClipboard LinCmds TylerFillers TylerWindows TylerCmds TylerMenus 
