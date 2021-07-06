@@ -1,2 +1,3 @@
 #!/bin/bash
+./clean
 wine cmd.exe /C build-windows-gui.bat

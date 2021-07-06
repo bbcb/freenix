@@ -1,0 +1,29 @@
+#!/bin/sh
+
+find . -type f -name "*.ocf" -exec rm -f {} \;
+find . -type f -name "*.osf" -exec rm -f {} \;
+find . -type f -name "*~" -exec rm -f {} \;
+find . -type f -name "odc?????" -exec rm -f {} \;
+find . -depth -type d -empty -exec rmdir {} \;
+rm blackbox BlackBox.exe
+
+#Fool console compiler into thinking that IMPORT COM is allowed
+mkdir Dev/Code
+touch Dev/Code/ComDebug.ocf
+
+./run-dev0 <<DATA
+DevCompiler.CompileSubs Lin System Std Cons Var Text Form Dev Dev2     Com Comm Ctl Ole Sql Win
+
+Dev2Linker1.LinkElfExe `uname -s` blackbox := Unicode Kernel$+ Files Utf LinEnv LinFiles LinGui StdLoader LinLoader
+DevLinker.Link BlackBox.exe := Unicode Kernel$+ Files Utf WinKernel WinEnv WinFiles WinGui StdLoader WinLoader 1 BlackBox.res 1 Applogo.ico 2 Doclogo.ico 3 SFLogo.ico 4 CFLogo.ico 5 DtyLogo.ico 6 folderimg.ico 7 openimg.ico 8 leafimg.ico 1 Move.cur 2 Copy.cur 3 Link.cur 4 Pick.cur 5 Stop.cur 6 Hand.cur 7 Table.cur >> tmp.txt
+
+DATA
+chmod +x BlackBox.exe
+
+#@echo off
+#rem @echo DevCompiler.CompileSubs Com Comm Ctl Dev Form Ole Sql Std System Text Win Cons >> tmp.txt
+#@echo 
+#DevLinker.Link BlackBox.exe := Unicode Kernel$+ Files Utf WinKernel WinEnv WinFiles WinGui StdLoader WinLoader 1 BlackBox.res 1 Applogo.ico 2 Doclogo.ico 3 SFLogo.ico 4 CFLogo.ico 5 DtyLogo.ico 6 folderimg.ico 7 openimg.ico 8 leafimg.ico 1 Move.cur 2 Copy.cur 3 Link.cur 4 Pick.cur 5 Stop.cur 6 Hand.cur 7 Table.cur >> tmp.txt
+#@echo Kernel.Quit(0) >> tmp.txt
+#dev0win.exe /BB_PACKED_FIRST < tmp.txt
+#del tmp.txt

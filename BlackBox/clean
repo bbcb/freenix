@@ -6,3 +6,6 @@ find . -type f -name "*~" -exec rm -f {} \;
 find . -type f -name "odc?????" -exec rm -f {} \;
 find . -depth -type d -empty -exec rmdir {} \;
 rm blackbox BlackBox.exe
+#Fool console compiler into thinking IMPORT COM is allowed
+mkdir Dev/Code
+touch Dev/Code/ComDebug.ocf
