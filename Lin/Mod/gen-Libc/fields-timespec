@@ -1,3 +1,0 @@
-			(* Ubuntu 17.10 /usr/include/i386-linux-gnu/bits/types/struct_timespec.h: *)
-				tv_sec*: time_t;
-				tv_nsec*: INTEGER;
