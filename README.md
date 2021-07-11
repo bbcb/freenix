@@ -13,30 +13,6 @@ Tested on:
 * Red Hat Enterprise Linux Server 6.3
 * Fedora Core 17
 
-Download: https://blackbox.oberon.org/download
-
-Directories structure:
-
-	BlackBox/
-		universal development environment for Component Pascal programming language
-	BlackBox/_*
-		platform-specific files
-
-	dev/
-		files for continuous integration system & technical notes for framework developers
-
-	examples/
-		append/  - append string to .odc file
-		encoder/ - encoding subsystems by StdCoder from the command line
-		server/  - static web-server
-
-Prepare BlackBox from repository on Windows:
-
-	copy _Windows_, _Windows_GUI and __GUI content to the BlackBox directory
-	remove other directories starting with "_"
-	run build.bat
-
-
 Installation of required packages in Debian-based systems:
 
 	For Alt Education 9.1
@@ -67,54 +43,17 @@ Installation of required packages in Debian-based systems:
 		sudo apt-get update
 		sudo apt-get install libgtk2.0-0:i386 gtk2-engines:i386 gtk2-engines-murrine:i386 libcanberra-gtk-module:i386 gnome-icon-theme-full
 
-
 	Arch-based systems amd64:
 
 		sudo pacman -S multilib/lib32-gtk2
 
 In OpenBSD use 'wxallowed' flag in mount options for the partition to start BlackBox from.
 
-
-
-To build BlackBox:
-
-	cd BlackBox
-	./switch-target `uname -s` GUI
-	./build
-
-To run BlackBox (after build):
-
-	./run-BlackBox
-
-for Linux version also you can run
-
-	./blackbox
-
-To create BlackBox framework assembly (after build):
-
-	./export <outputDirectory>
-
-To clean the BlackBox folder:
-
-	./switch-target none
-	./clean
-
-Example: build, create framework assembly and run BlackBox from it:
-
-	cd BlackBox
-	./switch-target `uname -s` GUI
-	./build
-	./export ../`uname -s`_GUI
-	./switch-target none
-	./clean
-	cd ../`uname -s`_GUI
-	./run-BlackBox
-
 Authors:
 * Oberon microsystems AG
 * BlackBox Framework Center
+* OberonCore
 * Alexander V. Shiryaev
 * Igor A. Dehtyarenko
 * Ivan A. Denisov
 * Anton A. Dmitriev
-* Boris V. Rumshin
