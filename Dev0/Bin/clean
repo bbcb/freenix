@@ -1,7 +1,9 @@
 #!/bin/sh
+
+cd ../..
 find . -type f -name "*.ocf" -exec rm -f {} \;
 find . -type f -name "*.osf" -exec rm -f {} \;
 find . -type f -name "*~" -exec rm -f {} \;
 find . -type f -name "odc?????" -exec rm -f {} \;
 find . -depth -type d -empty -exec rmdir {} \;
-rm blackbox BlackBox.exe blackboxInterp BlackBoxInterp.exe 2> /dev/null
+rm blackbox BlackBox.exe blackboxInterp BlackBoxInterp.exe
